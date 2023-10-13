@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:33:29 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 11:08:22 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 12:34:47 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			print_len += ft_branch(str[i + 1], args);
+			i++;
+			print_len += ft_branch(str[i], args);
 		}
 		else
 			print_len += ft_print_char(str[i]);
@@ -58,3 +59,41 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (print_len);
 }
+
+// #include "ft_printf.h"
+// #include <stdio.h>  // 標準のprintf関数を使用するために必要
+
+// int main(void)
+// {
+//     int ft_len, std_len;
+
+//     // テスト1: 文字列を出力
+//     ft_len = ft_printf("Test1: Hello, World!\n");
+//     std_len = printf("Test1: Hello, World!\n");
+//     printf("Expected: %d, Got: %d\n", std_len, ft_len);
+
+//     // テスト2: 整数を出力
+//     ft_len = ft_printf("Test2: Number: %d\n", 42);
+//     std_len = printf("Test2: Number: %d\n", 42);
+//     printf("Expected: %d, Got: %d\n", std_len, ft_len);
+
+//     // テスト3: 16進数を小文字で出力
+//     ft_len = ft_printf("Test3: Hex (lowercase): %x\n", 255);
+//     std_len = printf("Test3: Hex (lowercase): %x\n", 255);
+//     printf("Expected: %d, Got: %d\n", std_len, ft_len);
+
+//     // テスト4: 16進数を大文字で出力
+//     ft_len = ft_printf("Test4: Hex (uppercase): %X\n", 255);
+//     std_len = printf("Test4: Hex (uppercase): %X\n", 255);
+//     printf("Expected: %d, Got: %d\n", std_len, ft_len);
+
+//     // テスト5: ポインタを出力
+//     int num = 42;
+//     ft_len = ft_printf("Test5: Pointer: %p\n", &num);
+//     std_len = printf("Test5: Pointer: %p\n", &num);
+//     printf("Expected: %d, Got: %d\n", std_len, ft_len);
+
+//     // 他にも様々なテストケースを追加...
+
+//     return (0);
+// }

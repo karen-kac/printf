@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:28:33 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 11:12:19 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 11:16:42 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int			ft_printf(const char *str, ...);
 int			ft_print_char(int c);
 
 //static int	ft_putnbr_hexx(unsigned int nbr, char *hex_digits);
-
 
 int			ft_print_hex(unsigned int nbr, int use_uppercase);
 
