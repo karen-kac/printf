@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:39:06 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 11:12:57 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 13:29:20 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	ft_print_pointer(void *ptr)
 	int	len;
 
 	len = 0;
+    if (ptr == NULL)
+		return (write(1, "(nil)", 5));
 	len += write(1, "0x", 2);
 	len += ft_putnbr_hex((unsigned long)ptr);
 	return (len);

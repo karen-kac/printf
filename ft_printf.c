@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:33:29 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 12:34:47 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 13:13:30 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,10 @@ int	ft_printf(const char *str, ...)
 //     std_len = printf("Test5: Pointer: %p\n", &num);
 //     printf("Expected: %d, Got: %d\n", std_len, ft_len);
 
-//     // 他にも様々なテストケースを追加...
+// 	//テスト6：ヌルポインタの出力
+//     ft_len = ft_printf("Test6: Pointer: %p\n", (void *)0);
+//     std_len = printf("Test6: Pointer: %p\n", (void *)0);
+//     printf("Expected: %d, Got: %d\n", std_len, ft_len);
 
 //     return (0);
 // }
