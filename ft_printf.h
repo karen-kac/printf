@@ -6,29 +6,40 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:28:33 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/10 16:44:54 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 11:12:19 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include <stdarg.h> // va_list, va_start, va_arg, va_end
-#include<unistd.h>
-#include "libft.h"
+# include "libft/libft.h"
+# include <stdarg.h>
+# include <unistd.h>
 
-// プロトタイプ宣言
-int ft_printf(const char *, ...);
+int			ft_branch(const char c, va_list args);
 
-int ft_print_char(va_list args);
+int			ft_printf(const char *str, ...);
 
-int ft_print_hex(va_list args);
+int			ft_print_char(int c);
 
-int ft_print_int(va_list args);
-
-int ft_print_percent(va_list args);
+//static int	ft_putnbr_hexx(unsigned int nbr, char *hex_digits);
 
 
-// 追加のヘッダーファイルや定義をここに追加できます
+int			ft_print_hex(unsigned int nbr, int use_uppercase);
+
+int			ft_print_int(int n);
+
+int			ft_print_percent(void);
+
+//static int	ft_putnbr_hex(unsigned long nbr);
+
+int			ft_print_pointer(void *ptr);
+
+int			ft_print_string(char *str);
+
+//static int	ft_putnbr_unsigned(unsigned int n);
+
+int			ft_print_unsignedint(unsigned int n);
 
 #endif

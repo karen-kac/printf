@@ -6,15 +6,31 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:39:06 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/10 16:44:14 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 11:12:57 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
-int ft_print_pointer(va_list args)
+static int	ft_putnbr_hex(unsigned long nbr)
 {
-    char c = va_arg(args, int);
-    // %cの処理をここに書く
-    return 0; // 仮の戻り値
+	char	*hex;
+	int		len;
+
+	hex = "0123456789abcdef";
+	len = 0;
+	if (nbr >= 16)
+		len += ft_putnbr_hex(nbr / 16);
+	len += ft_print_char(hex[nbr % 16]);
+	return (len);
+}
+
+int	ft_print_pointer(void *ptr)
+{
+	int	len;
+
+	len = 0;
+	len += write(1, "0x", 2);
+	len += ft_putnbr_hex((unsigned long)ptr);
+	return (len);
 }

@@ -6,12 +6,14 @@
 #    By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 15:31:13 by myokono           #+#    #+#              #
-#    Updated: 2023/10/10 15:32:50 by myokono          ###   ########.fr        #
+#    Updated: 2023/10/13 11:07:59 by myokono          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 SRCS = \
+		ft_printf.c print_char.c print_hex.c print_int.c print_percent.c \
+ 		print_pointer.c print_string.c print_unsignedint.c
 		
 
 OBJS = $(SRCS:.c=.o)

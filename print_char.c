@@ -6,15 +6,13 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:38:11 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/10 16:43:49 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:59:45 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_print_char(va_list args)
+int	ft_print_char(int c)
 {
-    char c = va_arg(args, int);
-    // %cの処理をここに書く
-    return 0; // 仮の戻り値
+	return (write(1, &c, 1));
 }

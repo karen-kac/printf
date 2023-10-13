@@ -6,15 +6,32 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:38:51 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/10 16:43:56 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 11:13:29 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
-int ft_print_hex(va_list args)
+static int	ft_putnbr_hexx(unsigned int nbr, char *hex_digits)
 {
-    char c = va_arg(args, int);
-    // %cの処理をここに書く
-    return 0; // 仮の戻り値
+	int	len;
+
+	len = 0;
+	if (nbr >= 16)
+		len += ft_putnbr_hexx(nbr / 16, hex_digits);
+	len += ft_print_char(hex_digits[nbr % 16]);
+	return (len);
+}
+
+int	ft_print_hex(unsigned int nbr, int use_uppercase)
+{
+	char	*hex_lower;
+	char	*hex_upper;
+
+	hex_lower = "0123456789abcdef";
+	hex_upper = "0123456789ABCDEF";
+	if (use_uppercase)
+		return (ft_putnbr_hexx(nbr, hex_upper));
+	else
+		return (ft_putnbr_hexx(nbr, hex_lower));
 }

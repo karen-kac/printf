@@ -6,15 +6,30 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:38:55 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/10 16:44:01 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 11:12:49 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
-int ft_print_int(va_list args)
+int	ft_print_int(int n)
 {
-    char c = va_arg(args, int);
-    // %cの処理をここに書く
-    return 0; // 仮の戻り値
+	long	nb;
+	char	c;
+	int		print_len;
+
+	nb = n;
+	print_len = 0;
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb *= -1;
+		print_len++;
+	}
+	if (nb > 9)
+		print_len += ft_print_int(nb / 10);
+	c = nb % 10 + '0';
+	write(1, &c, 1);
+	print_len++;
+	return (print_len);
 }

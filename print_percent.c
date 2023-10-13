@@ -6,15 +6,13 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:39:02 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/10 16:44:08 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 11:12:54 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
-int ft_print_percent(va_list args)
+int	ft_print_percent(void)
 {
-    char c = va_arg(args, int);
-    // %cの処理をここに書く
-    return 0; // 仮の戻り値
+	return (write(1, "%", 1));
 }
