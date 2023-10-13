@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:33:29 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 13:13:30 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/13 15:28:08 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,30 @@ int	ft_branch(const char c, va_list args)
 
 int	ft_printf(const char *str, ...)
 {
-	int		print_len;
+	size_t	print_len;
 	size_t	i;
+	int		current;
 	va_list	args;
 
 	va_start(args, str);
 	print_len = 0;
+	current = 0;
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
-		{
-			i++;
-			print_len += ft_branch(str[i], args);
-		}
+			current = ft_branch(str[++i], args);
 		else
-			print_len += ft_print_char(str[i]);
+			current = ft_print_char(str[i]);
+		if (current == -1)
+			return (-1);
+		print_len += current;
 		i++;
 	}
 	va_end(args);
-	return (print_len);
+	if (print_len > INT_MAX)
+		return (-1);
+	return ((int)print_len);
 }
 
 // #include "ft_printf.h"
