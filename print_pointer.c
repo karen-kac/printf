@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:39:06 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/15 14:31:22 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/15 16:40:31 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ ssize_t	ft_print_pointer(void *ptr)
 
 	len = 0;
 	i = 0;
-	if (ptr == NULL)
-		return (write(1, "(nil)", 5));
 	i = write(1, "0x", 2);
 	if (i == -1)
 		return (-1);
