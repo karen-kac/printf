@@ -20,12 +20,12 @@ static ssize_t	ft_putnbr_hexx(unsigned int nbr, char *hex_digits)
 	i = 0;
 	len = 0;
 	if (nbr >= 16)
-		i= ft_putnbr_hexx(nbr / 16, hex_digits);
-	if(i == -1)
+		i = ft_putnbr_hexx(nbr / 16, hex_digits);
+	if (i == -1)
 		return (-1);
 	len += i;
 	i = ft_print_char(hex_digits[nbr % 16]);
-	if(i == -1)
+	if (i == -1)
 		return (-1);
 	len += i;
 	return (len);

@@ -40,7 +40,7 @@ int	ft_printf(const char *str, ...)
 {
 	ssize_t	print_len;
 	size_t	i;
-	ssize_t		current;
+	ssize_t	current;
 	va_list	args;
 
 	va_start(args, str);
@@ -71,7 +71,7 @@ int	ft_printf(const char *str, ...)
 // {
 //     int ft_len, std_len;
 
-//     
+//
 //     ft_len = ft_printf("Test1: Hello, World!\n");
 //     std_len = printf("Test1: Hello, World!\n");
 //     printf("Expected: %d, Got: %d\n", std_len, ft_len);

@@ -15,7 +15,7 @@
 static ssize_t	ft_putnbr_hex(unsigned long nbr)
 {
 	char	*hex;
-	ssize_t		len;
+	ssize_t	len;
 	ssize_t	i;
 
 	i = 0;
@@ -23,11 +23,11 @@ static ssize_t	ft_putnbr_hex(unsigned long nbr)
 	len = 0;
 	if (nbr >= 16)
 		i = ft_putnbr_hex(nbr / 16);
-	if(i == -1)
+	if (i == -1)
 		return (-1);
 	len += i;
 	i = ft_print_char(hex[nbr % 16]);
-	if(i == -1)
+	if (i == -1)
 		return (-1);
 	len += i;
 	return (len);
@@ -36,18 +36,18 @@ static ssize_t	ft_putnbr_hex(unsigned long nbr)
 ssize_t	ft_print_pointer(void *ptr)
 {
 	ssize_t	len;
-	ssize_t i;
-	
+	ssize_t	i;
+
 	len = 0;
 	i = 0;
-    if (ptr == NULL)
+	if (ptr == NULL)
 		return (write(1, "(nil)", 5));
 	i = write(1, "0x", 2);
-	if(i == -1)
+	if (i == -1)
 		return (-1);
 	len += i;
 	i = ft_putnbr_hex((unsigned long)ptr);
-	if(i == -1)
+	if (i == -1)
 		return (-1);
 	len += i;
 	return (len);

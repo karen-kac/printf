@@ -12,14 +12,14 @@
 
 #include "ft_printf.h"
 
-static int ft_int_len(int n)
+static int	ft_int_len(int n)
 {
-	long nb;
-	int count;
+	long	nb;
+	int		count;
 
 	nb = n;
 	count = 0;
-	if(n == 0)
+	if (n == 0)
 		return (1);
 	if (nb < 0)
 	{
@@ -27,10 +27,10 @@ static int ft_int_len(int n)
 		count++;
 	}
 	while (nb > 0)
-    {
-        nb /= 10;
-        count++;
-    }
+	{
+		nb /= 10;
+		count++;
+	}
 	return (count);
 }
 
@@ -53,7 +53,7 @@ ssize_t	ft_print_int(int n)
 	c = nb % 10 + '0';
 	write(1, &c, 1);
 	len++;
-	if(len != ft_int_len(n))
+	if (len != ft_int_len(n))
 		return (-1);
 	return (len);
 }

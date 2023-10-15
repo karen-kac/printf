@@ -14,20 +14,20 @@
 
 ssize_t	ft_print_unsignedint(unsigned int n)
 {
-    char	c;
-	ssize_t		len;
-	ssize_t i;
+	char	c;
+	ssize_t	len;
+	ssize_t	i;
 
 	len = 0;
 	i = 0;
 	if (n >= 10)
 		i = ft_print_unsignedint(n / 10);
-	if(i == -1)
+	if (i == -1)
 		return (-1);
 	len += i;
 	c = (n % 10) + '0';
 	i = ft_print_char(c);
-	if(i == -1)
+	if (i == -1)
 		return (-1);
 	len += i;
 	return (len);

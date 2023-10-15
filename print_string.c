@@ -15,9 +15,9 @@
 ssize_t	ft_print_string(char *str)
 {
 	ssize_t	len;
-	
+
 	len = 0;
-    if (str == NULL)
+	if (str == NULL)
 		return (write(1, "(null)", 6));
 	while (str[len])
 		len++;

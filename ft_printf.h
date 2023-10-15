@@ -17,22 +17,22 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-ssize_t		ft_branch(const char c, va_list args);
+ssize_t	ft_branch(const char c, va_list args);
 
-int			ft_printf(const char *str, ...);
+int		ft_printf(const char *str, ...);
 
-ssize_t			ft_print_char(int c);
+ssize_t	ft_print_char(int c);
 
-ssize_t			ft_print_hex(unsigned int nbr, int use_uppercase);
+ssize_t	ft_print_hex(unsigned int nbr, int use_uppercase);
 
-ssize_t			ft_print_int(int n);
+ssize_t	ft_print_int(int n);
 
-ssize_t			ft_print_percent(void);
+ssize_t	ft_print_percent(void);
 
-ssize_t			ft_print_pointer(void *ptr);
+ssize_t	ft_print_pointer(void *ptr);
 
-ssize_t			ft_print_string(char *str);
+ssize_t	ft_print_string(char *str);
 
-ssize_t			ft_print_unsignedint(unsigned int n);
+ssize_t	ft_print_unsignedint(unsigned int n);
 
 #endif
