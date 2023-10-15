@@ -6,13 +6,13 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:39:02 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 11:12:54 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/15 13:55:00 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_percent(void)
+ssize_t	ft_print_percent(void)
 {
 	return (write(1, "%", 1));
 }

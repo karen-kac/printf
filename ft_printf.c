@@ -6,15 +6,15 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:33:29 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 15:28:08 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/15 13:45:22 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_branch(const char c, va_list args)
+ssize_t	ft_branch(const char c, va_list args)
 {
-	int	print_len;
+	ssize_t	print_len;
 
 	print_len = 0;
 	if (c == 'c')
@@ -38,9 +38,9 @@ int	ft_branch(const char c, va_list args)
 
 int	ft_printf(const char *str, ...)
 {
-	size_t	print_len;
+	ssize_t	print_len;
 	size_t	i;
-	int		current;
+	ssize_t		current;
 	va_list	args;
 
 	va_start(args, str);
@@ -65,39 +65,39 @@ int	ft_printf(const char *str, ...)
 }
 
 // #include "ft_printf.h"
-// #include <stdio.h>  // 標準のprintf関数を使用するために必要
+// #include <stdio.h>
 
 // int main(void)
 // {
 //     int ft_len, std_len;
 
-//     // テスト1: 文字列を出力
+//     
 //     ft_len = ft_printf("Test1: Hello, World!\n");
 //     std_len = printf("Test1: Hello, World!\n");
 //     printf("Expected: %d, Got: %d\n", std_len, ft_len);
 
-//     // テスト2: 整数を出力
+//     //
 //     ft_len = ft_printf("Test2: Number: %d\n", 42);
 //     std_len = printf("Test2: Number: %d\n", 42);
 //     printf("Expected: %d, Got: %d\n", std_len, ft_len);
 
-//     // テスト3: 16進数を小文字で出力
+//     //
 //     ft_len = ft_printf("Test3: Hex (lowercase): %x\n", 255);
 //     std_len = printf("Test3: Hex (lowercase): %x\n", 255);
 //     printf("Expected: %d, Got: %d\n", std_len, ft_len);
 
-//     // テスト4: 16進数を大文字で出力
+//     //
 //     ft_len = ft_printf("Test4: Hex (uppercase): %X\n", 255);
 //     std_len = printf("Test4: Hex (uppercase): %X\n", 255);
 //     printf("Expected: %d, Got: %d\n", std_len, ft_len);
 
-//     // テスト5: ポインタを出力
+//     //
 //     int num = 42;
 //     ft_len = ft_printf("Test5: Pointer: %p\n", &num);
 //     std_len = printf("Test5: Pointer: %p\n", &num);
 //     printf("Expected: %d, Got: %d\n", std_len, ft_len);
 
-// 	//テスト6：ヌルポインタの出力
+//
 //     ft_len = ft_printf("Test6: Pointer: %p\n", (void *)0);
 //     std_len = printf("Test6: Pointer: %p\n", (void *)0);
 //     printf("Expected: %d, Got: %d\n", std_len, ft_len);

@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:28:33 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 11:16:42 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/15 13:47:01 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,22 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int			ft_branch(const char c, va_list args);
+ssize_t		ft_branch(const char c, va_list args);
 
 int			ft_printf(const char *str, ...);
 
-int			ft_print_char(int c);
+ssize_t			ft_print_char(int c);
 
-//static int	ft_putnbr_hexx(unsigned int nbr, char *hex_digits);
+ssize_t			ft_print_hex(unsigned int nbr, int use_uppercase);
 
-int			ft_print_hex(unsigned int nbr, int use_uppercase);
+ssize_t			ft_print_int(int n);
 
-int			ft_print_int(int n);
+ssize_t			ft_print_percent(void);
 
-int			ft_print_percent(void);
+ssize_t			ft_print_pointer(void *ptr);
 
-//static int	ft_putnbr_hex(unsigned long nbr);
+ssize_t			ft_print_string(char *str);
 
-int			ft_print_pointer(void *ptr);
-
-int			ft_print_string(char *str);
-
-//static int	ft_putnbr_unsigned(unsigned int n);
-
-int			ft_print_unsignedint(unsigned int n);
+ssize_t			ft_print_unsignedint(unsigned int n);
 
 #endif

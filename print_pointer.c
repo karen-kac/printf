@@ -6,33 +6,49 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:39:06 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 13:43:18 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/15 14:31:22 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putnbr_hex(unsigned long nbr)
+static ssize_t	ft_putnbr_hex(unsigned long nbr)
 {
 	char	*hex;
-	int		len;
+	ssize_t		len;
+	ssize_t	i;
 
+	i = 0;
 	hex = "0123456789abcdef";
 	len = 0;
 	if (nbr >= 16)
-		len += ft_putnbr_hex(nbr / 16);
-	len += ft_print_char(hex[nbr % 16]);
+		i = ft_putnbr_hex(nbr / 16);
+	if(i == -1)
+		return (-1);
+	len += i;
+	i = ft_print_char(hex[nbr % 16]);
+	if(i == -1)
+		return (-1);
+	len += i;
 	return (len);
 }
 
-int	ft_print_pointer(void *ptr)
+ssize_t	ft_print_pointer(void *ptr)
 {
-	int	len;
-
+	ssize_t	len;
+	ssize_t i;
+	
 	len = 0;
+	i = 0;
     if (ptr == NULL)
 		return (write(1, "(nil)", 5));
-	len += write(1, "0x", 2);
-	len += ft_putnbr_hex((unsigned long)ptr);
+	i = write(1, "0x", 2);
+	if(i == -1)
+		return (-1);
+	len += i;
+	i = ft_putnbr_hex((unsigned long)ptr);
+	if(i == -1)
+		return (-1);
+	len += i;
 	return (len);
 }

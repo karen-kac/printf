@@ -6,24 +6,32 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:38:51 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/13 13:43:01 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/15 14:39:36 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putnbr_hexx(unsigned int nbr, char *hex_digits)
+static ssize_t	ft_putnbr_hexx(unsigned int nbr, char *hex_digits)
 {
-	int	len;
+	ssize_t	len;
+	ssize_t	i;
 
+	i = 0;
 	len = 0;
 	if (nbr >= 16)
-		len += ft_putnbr_hexx(nbr / 16, hex_digits);
-	len += ft_print_char(hex_digits[nbr % 16]);
+		i= ft_putnbr_hexx(nbr / 16, hex_digits);
+	if(i == -1)
+		return (-1);
+	len += i;
+	i = ft_print_char(hex_digits[nbr % 16]);
+	if(i == -1)
+		return (-1);
+	len += i;
 	return (len);
 }
 
-int	ft_print_hex(unsigned int nbr, int use_uppercase)
+ssize_t	ft_print_hex(unsigned int nbr, int use_uppercase)
 {
 	char	*hex_lower;
 	char	*hex_upper;

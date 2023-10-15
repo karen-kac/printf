@@ -6,13 +6,13 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:38:11 by myokono           #+#    #+#             */
-/*   Updated: 2023/10/12 21:59:45 by myokono          ###   ########.fr       */
+/*   Updated: 2023/10/15 13:43:56 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(int c)
+ssize_t	ft_print_char(int c)
 {
 	return (write(1, &c, 1));
 }
